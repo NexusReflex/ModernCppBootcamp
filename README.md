@@ -1,5 +1,3 @@
-# Modern C++ Bootcamp
-
 # 🚀 Modern C++ Bootcamp
 
 This repository tracks the progression from "Classic C++" to **Modern C++ (C++20/23)**, focusing on safety, performance, and expressive syntax.
@@ -23,18 +21,19 @@ This repository tracks the progression from "Classic C++" to **Modern C++ (C++20
 
 ## 📅 Day 2: Functional C++, Lambdas & Ranges
 ### Topics
-* **Lambdas:** Writing anonymous functions for concise, in-place logic.
-* **Capture Clauses:** Mastering capture by value `[=]` vs. capture by reference `[&]`.
-* **std::ranges (C++20):** Operating on entire containers instead of iterator pairs.
-* **Projections:** Simplifying algorithms with member pointers (e.g., `&Student::grade`). (Todo)
-* **Data Sanitization:** Robust string-to-number conversion using `try-catch` and `std::stod`.
+* **Lambdas & Captures:** Writing anonymous functions with `[&]` and `[=]` for in-place logic.
+* **Modern Algorithms:** Mastering `std::find_if`, `std::count_if`, and `std::copy_if` with `std::back_inserter`.
+* **C++20 Ranges:** Transitioning from `.begin()/.end()` to passing entire containers to `std::ranges::sort`.
+* **Exception Handling:** Using `try-catch` with `std::stod` to sanitize "dirty" string data.
 
-### Assignment: The String Sanitizer & Stats
-* **Filter & Convert:** Transform a `std::vector<std::string>` (with "ERROR" noise) into a clean `std::vector<double>`.
-* **Clamping:** Use `std::ranges::replace_if` to cap values at 100.0.
-* **Outlier Removal:** Use C++20 `std::erase_if` to strip values below 10.0.
-* **Reduction:** Calculate the dataset average using `std::accumulate`.
+### Assignment A: String Sanitizer & Statistics
+* **Filter & Convert:** Use `std::for_each` and `std::stod` to extract numbers from messy log strings.
+* **Data Processing:** Implement "Clamping" (capping values between 0 and 100) and outlier removal using `std::erase_if`.
+* **Numeric Reduction:** Compute averages using `std::accumulate` (noting the importance of `0.0` to avoid integer truncation).
 
+### Assignment B: Student Grade Processor
+* **Advanced Sorting:** Sort custom `Student` structs in both ascending and descending order.
+* **Searching:** Find the first "Top Student" (> 90.0) and extract a list of "Failed Students" (<= 50.0).
 ---
 
 ## 📅 Day 3: Shared Ownership & The Observer Pattern
