@@ -3,10 +3,11 @@ add_executable(SafeFile
     main.cpp
     SafeFile.h)
 
+add_executable( DebugTest 
+    debug_test.cpp)
+
 # Define a macro 'DATA_DIR' pointing to the Day 1 source folder
 target_compile_definitions(SafeFile PRIVATE 
     DATA_PATH="${CMAKE_CURRENT_SOURCE_DIR}/data"
 )
-
-add_executable( DebugTest debug_test.cpp)
 

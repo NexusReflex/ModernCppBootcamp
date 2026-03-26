@@ -17,5 +17,6 @@ if(NOT MSVC)
     add_link_options(-fsanitize=address)
 endif()
 
+# 3. Include subdirectories for each day
 add_subdirectory(Day1)
-# add_subdirectory(Day2) ... and so on
+add_subdirectory(Day2) 
