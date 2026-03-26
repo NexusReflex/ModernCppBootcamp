@@ -1,0 +1,15 @@
+# Ignore the entire build directory
+build/
+bin/
+obj/
+
+# Ignore VS Code internal settings
+.vscode/
+.cmake/
+
+# Ignore OS-specific junk
+.DS_Store
+*.swp
+
+# Ignore all data folders
+**/data/
