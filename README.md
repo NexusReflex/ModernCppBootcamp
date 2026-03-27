@@ -105,10 +105,29 @@ You are building a high-performance system for a stock trading platform. The sys
 [Bot 1] Received Update: 175.25
 [Bot 2] Received Update: 175.25
 [Engine]: Successfully notified 2 active bots. (1 bot was found to be expired).
-
+```
 ---
 
-## 🛠 Tech Stack
+
+## 🛠 Build & Safety Strategy
+
+### 1. Requirements
+* **Compiler:** GCC 11+, Clang 13+, or MSVC 19.29+ (C++20 Support).
+* **Build System:** CMake 3.15+.
 * **Language:** C++20 / C++23
-* **Compiler:** GCC 11+ / Clang 13+ / MSVC 19.29+
-* **Build System:** CMake 3.20+
+
+### 2. Safety Features
+This project utilizes a strict safety strategy:
+* **Warnings as Errors:** `-Wall -Wextra -Werror` ensures no code is merged with warnings.
+* **Address Sanitizer (ASan):** `-fsanitize=address` is enabled on non-MSVC platforms to detect memory corruption at runtime.
+
+### 3. Compilation
+```bash
+# From the root directory:
+mkdir build && cd build
+cmake ..
+cmake --build .
+```
+
+# To run a specific day (e.g., Day 5):
+``` ./Day1_RAII/SafeFile```

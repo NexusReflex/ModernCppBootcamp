@@ -13,7 +13,6 @@ int main(){
     newsAgency.subscribe(sub2);
 
     {
-
         auto sub3 = std::make_shared<Subscriber>("UserC", 2);
         newsAgency.subscribe(sub3);
     
