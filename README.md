@@ -66,6 +66,48 @@ This repository tracks the progression from "Classic C++" to **Modern C++ (C++20
 
 ---
 
+## 🏆 The Day 5 Challenge: "The Real-Time Analytics Engine"
+
+### 📜 The Scenario
+You are building a high-performance system for a stock trading platform. The system receives a stream of "Price Updates" (Strings) that are often messy. You need to sanitize them, calculate statistics, and notify a set of specialized **"Alert Bots"** (Subscribers) about the new average price—all while ensuring the system doesn't crash or leak memory.
+
+---
+
+### 🏗 The Architecture Requirements
+
+#### 1. Data Sanitization (Day 2)
+* **Input:** Start with a `std::vector<std::string>` of raw price data (e.g., `"150.50"`, `"ERROR"`, `"200.00"`, `"9999.99"`).
+* **Process:** Use **Ranges** and **Lambdas** to:
+    * Convert strings to `double` using `try-catch` and `std::stod`.
+    * Clamp outliers (e.g., cap everything at `5000.0`).
+    * Remove invalid entries or "zero" values using `std::erase_if`.
+
+#### 2. Smart Ownership (Day 1 & 3)
+* **Lifecycle:** Store your `AlertBot` objects in `main` using `std::shared_ptr`.
+* **Observation:** The `AnalyticsEngine` (Publisher) must store these bots as `std::weak_ptr`. 
+* **Goal:** Ensure that if a bot is disconnected (destroyed), the engine doesn't keep it alive or crash when trying to reach it.
+
+#### 3. Threaded Execution (Day 4)
+* **Parallelism:** When a new batch of data is processed, the `AnalyticsEngine` must notify all bots in parallel using `std::jthread`.
+* **Feedback:** Each bot should print its unique ID and the new calculated average.
+
+#### 4. The "Safety" Twist
+* **Console Integrity:** Use a `static inline std::mutex` in the `AlertBot` class to ensure console output isn't scrambled.
+* **Atomic Accounting:** Use a `std::atomic<int>` to count exactly how many bots successfully logged the update across all threads.
+* **The Killer Feature:** One of your bots must be "temporary" (created in a small `{}` scope in `main`). Prove that your engine handles its sudden "death" mid-run by using the `.lock()` pattern safely.
+
+---
+
+### 🧪 Expected Output Example
+```text
+[Engine]: Processing 5 new price signals...
+[Engine]: Sanitization complete. New Market Average: 175.25
+[Bot 1] Received Update: 175.25
+[Bot 2] Received Update: 175.25
+[Engine]: Successfully notified 2 active bots. (1 bot was found to be expired).
+
+---
+
 ## 🛠 Tech Stack
 * **Language:** C++20 / C++23
 * **Compiler:** GCC 11+ / Clang 13+ / MSVC 19.29+

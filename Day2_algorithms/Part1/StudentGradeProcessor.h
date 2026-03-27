@@ -35,7 +35,7 @@ namespace StudentGradeProcessor {
 
     // Returns a std::vector<Student> containing all students with a grade below 50.0. If no such students are found, returns an empty vector.
    
-    auto findFailedStudents(std::vector<Student>& students){
+    auto findFailedStudents(const std::vector<Student>& students){
         std::vector<Student> failedStudents;
         std::copy_if(students.begin(), students.end(), std::back_inserter(failedStudents), [](const auto& a){
             return a.grade <= 50.0;

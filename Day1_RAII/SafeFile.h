@@ -20,8 +20,8 @@ struct FileDeleter {
 
 class SafeFile {
     private:
-        std::unique_ptr<FILE, FileDeleter> file_handle;
-        std::unique_ptr<char[]> buffer;
+        std::unique_ptr<FILE, FileDeleter> file_handle; // Manages the FILE* resource with a custom deleter
+        std::unique_ptr<char[]> buffer; // Buffer for formatted output, managed with a unique_ptr for automatic cleanup -> calls delete[] when going out of scope
 
     public: 
         explicit SafeFile(const std::filesystem::path& filepath) {

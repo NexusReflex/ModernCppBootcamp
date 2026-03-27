@@ -18,6 +18,7 @@ if(NOT MSVC)
 endif()
 
 # 3. Include subdirectories for each day
-add_subdirectory(Day1)
-add_subdirectory(Day2) 
-add_subdirectory(Day3)
+add_subdirectory(Day1_RAII)
+add_subdirectory(Day2_algorithms) 
+add_subdirectory(Day3_shared_pointers)
+add_subdirectory(Day4_concurrency)

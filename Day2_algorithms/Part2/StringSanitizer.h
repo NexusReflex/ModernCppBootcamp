@@ -48,7 +48,7 @@ namespace StringSanitizer{
         }); // remove small values
     };
 
-    auto average_vector(std::vector<double>& values){
+    auto average_vector(const std::vector<double>& values){
         return std::accumulate(values.begin(), values.end(), 0.0) / values.size(); // The 0.0 is the starting value. If you put 0 (an integer), the compiler will truncate all your doubles into ints!
     };
 
