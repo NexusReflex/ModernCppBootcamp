@@ -71,8 +71,6 @@ This repository tracks the progression from "Classic C++" to **Modern C++ (C++20
 ### 📜 The Scenario
 You are building a high-performance system for a stock trading platform. The system receives a stream of "Price Updates" (Strings) that are often messy. You need to sanitize them, calculate statistics, and notify a set of specialized **"Alert Bots"** (Subscribers) about the new average price—all while ensuring the system doesn't crash or leak memory.
 
----
-
 ### 🏗 The Architecture Requirements
 
 #### 1. Data Sanitization (Day 2)
