@@ -3,7 +3,6 @@
 add_executable(Day5_analytics_engine
     src/main.cpp 
     src/AnalyticsEngine.cpp
-    src/AlertBot.cpp
 )
 
 # 1. Add all necessary include paths

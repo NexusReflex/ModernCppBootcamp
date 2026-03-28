@@ -1,6 +1,6 @@
 #include <memory>
-#include "Publisher.h"
-#include "Subscriber.h"
+#include "ThreadSafePublisher.h"
+#include "ThreadedSubscriber.h"
 
 int main(){
 

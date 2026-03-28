@@ -7,6 +7,11 @@ void AnalyticsEngine::process_and_notify(const std::vector<std::string>& raw_dat
 
             auto clean_data = StringSanitizer::filter_and_convert(raw_data); // remove non-double entries
 
+            std::cout << "[Engine]: Cleaned data: \n";
+            for (const auto& entry : clean_data){
+                std::cout << entry << std::endl;
+            }
+
             if (clean_data.empty()){
                 std::cout << "[Engine]: Empty data received. Nothing to do here.";
                 return;
